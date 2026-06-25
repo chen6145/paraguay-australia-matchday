@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paraguay vs Australia Matchday Plan</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18201f;
+      --muted: #5d6764;
+      --line: #d9e0dd;
+      --field: #0d7a52;
+      --field-dark: #09543d;
+      --gold: #f2b84b;
+      --red: #b73b32;
+      --blue: #1f5e9d;
+      --paper: #f8f6ef;
+      --white: #fffdf8;
+      --shadow: 0 12px 30px rgba(24, 32, 31, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+      gap: 22px;
+      align-items: stretch;
+      min-height: 360px;
+    }
+
+    .scoreboard {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(9, 84, 61, 0.94), rgba(13, 122, 82, 0.9)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 92px);
+      color: white;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .scoreboard::before,
+    .scoreboard::after {
+      content: "";
+      position: absolute;
+      top: 28px;
+      bottom: 28px;
+      width: 16%;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+      pointer-events: none;
+    }
+
+    .scoreboard::before {
+      left: 24px;
+      border-right: 0;
+    }
+
+    .scoreboard::after {
+      right: 24px;
+      border-left: 0;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin: 0 0 18px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .match-meta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .meta-box {
+      min-height: 86px;
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .meta-box b {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 20px;
+    }
+
+    .meta-box span {
+      display: block;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 13px;
+    }
+
+    .quick-card {
+      border-radius: 8px;
+      background: var(--white);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .quick-card h2,
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .route-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      margin: 18px 0;
+      border-radius: 8px;
+      background: var(--ink);
+      color: white;
+      font-weight: 800;
+    }
+
+    .status-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .status-list li {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .status-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .status-list strong {
+      color: var(--field-dark);
+      font-size: 13px;
+    }
+
+    .section {
+      margin-top: 22px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(130px, 1fr));
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .step {
+      min-width: 130px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      padding: 14px;
+      background: #fff;
+    }
+
+    .step time {
+      display: block;
+      color: var(--red);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .step span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .map-visual {
+      width: 100%;
+      min-height: 320px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #eef3ee;
+      overflow: hidden;
+    }
+
+    .map-note {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #f3ead6;
+      color: #6b4311;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .info-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+      min-height: 150px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .tab-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      border-radius: 999px;
+      padding: 6px 11px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .team-card {
+      border-top: 6px solid var(--field);
+    }
+
+    .team-card.paraguay {
+      border-top-color: var(--red);
+    }
+
+    .team-card.australia {
+      border-top-color: var(--gold);
+    }
+
+    .team-overview {
+      display: grid;
+      gap: 18px;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .player-card {
+      position: relative;
+      min-height: 310px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .player-card img {
+      display: block;
+      width: 100%;
+      height: 168px;
+      object-fit: cover;
+      object-position: center top;
+      background: #e8eeeb;
+    }
+
+    .player-body {
+      padding: 12px;
+    }
+
+    .player-body h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      line-height: 1.15;
+    }
+
+    .player-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .number-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(24, 32, 31, 0.92);
+      color: #fff;
+      font-weight: 900;
+      border: 2px solid rgba(255, 255, 255, 0.78);
+    }
+
+    .role-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0;
+    }
+
+    .role-line span {
+      border-radius: 999px;
+      padding: 4px 7px;
+      background: #eef3ee;
+      color: var(--field-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .market-value {
+      display: inline-flex;
+      width: fit-content;
+      margin: 0 0 8px;
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: #18201f;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .tactics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tactic-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tactic-list li {
+      margin: 7px 0;
+    }
+
+    .formation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pitch-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .pitch-card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .pitch-card > p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pitch {
+      display: grid;
+      gap: 10px;
+      min-height: 430px;
+      padding: 18px 12px;
+      border-radius: 8px;
+      background:
+        linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+        repeating-linear-gradient(90deg, #0d7a52 0 78px, #0b704b 78px 156px);
+      border: 2px solid rgba(255,255,255,0.85);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.45);
+    }
+
+    .formation-line {
+      display: grid;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .line-1 {
+      grid-template-columns: 1fr;
+    }
+
+    .line-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .line-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .line-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .line-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .player-dot {
+      min-height: 52px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 2px;
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.94);
+      color: var(--ink);
+      padding: 6px 4px;
+      text-align: center;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    .player-dot b {
+      display: block;
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .player-dot span {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.1;
+    }
+
+    .player-dot.uncertain {
+      outline: 2px dashed var(--gold);
+      background: #fff7e5;
+    }
+
+    .watch-row {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-top: 12px;
+    }
+
+    .minute {
+      display: grid;
+      place-items: center;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      background: var(--field);
+      color: white;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .sources {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .sources a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        padding: 14px;
+      }
+
+      .hero,
+      .map-grid,
+      .grid-2,
+      .grid-3,
+      .players-grid,
+      .tactics-grid,
+      .formation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pitch {
+        min-height: 380px;
+      }
+
+      .scoreboard {
+        padding: 24px 18px;
+      }
+
+      .match-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .status-list li {
+        grid-template-columns: 72px 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Match summary">
+      <div class="scoreboard">
+        <p class="eyebrow">2026 FIFA World Cup · Group D · Santa Clara</p>
+        <h1>Paraguay vs Australia</h1>
+        <div class="match-meta">
+          <div class="meta-box">
+            <b>7:00 PM</b>
+            <span>Kickoff · Thursday, Jun 25</span>
+          </div>
+          <div class="meta-box">
+            <b>25 min</b>
+            <span>Google San Jose - Tasman → Stadium walk</span>
+          </div>
+          <div class="meta-box">
+            <b>6:00 PM</b>
+            <span>Target security line time</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="quick-card">
+        <h2>今晚策略</h2>
+        <ul class="status-list">
+          <li><strong>核心</strong><span>不要把精力花在排队上。车停 Google Tasman 后，提前走，6 点左右过安检。</span></li>
+          <li><strong>天气</strong><span>7 点约 71°F，散场约 63°F。短袖可以，带薄外套。</span></li>
+          <li><strong>包</strong><span>只带透明包、小钱包、手机、充电宝、一瓶未开封软塑料水。</span></li>
+          <li><strong>心态</strong><span>这场是出线压力局。70 分钟后如果还是平局，巴拉圭会更急。</span></li>
+        </ul>
+        <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;origin=255%20W%20Tasman%20Dr%2C%20San%20Jose%2C%20CA&amp;destination=Levi%27s%20Stadium%2C%20Santa%20Clara%2C%20CA&amp;travelmode=walking" target="_blank" rel="noopener">打开 Google Maps 步行路线</a>
+      </aside>
+    </section>
+
+    <section class="section" aria-labelledby="timeline-title">
+      <h2 id="timeline-title">Timeline</h2>
+      <div class="timeline">
+        <div class="step">
+          <time>4:15</time>
+          <b>San Carlos 出发</b>
+          <span>101/280 任选更顺的路。今天按比赛日 + 晚高峰预留缓冲。</span>
+        </div>
+        <div class="step">
+          <time>5:05</time>
+          <b>到 Google Tasman</b>
+          <span>停好车，清空随身物。不要带电脑包进 stadium。</span>
+        </div>
+        <div class="step">
+          <time>5:25</time>
+          <b>开始步行</b>
+          <span>Maps 显示约 25 分钟；现场封路时跟 event signage。</span>
+        </div>
+        <div class="step">
+          <time>5:55</time>
+          <b>到安检外围</b>
+          <span>目标是 6 点在安检口，不是 6 点才开始走。</span>
+        </div>
+        <div class="step">
+          <time>6:15</time>
+          <b>进场补给</b>
+          <span>先厕所，再买饮料/小吃。中场别去排长队。</span>
+        </div>
+        <div class="step">
+          <time>6:45</time>
+          <b>回座位</b>
+          <span>看热身收尾、拍照、国歌。7 点开球。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="map-title">
+      <div class="map-grid">
+        <div>
+          <h2 id="map-title">步行地图</h2>
+          <svg class="map-visual" viewBox="0 0 900 520" role="img" aria-label="Simplified walking map from Google San Jose Tasman to Levi's Stadium">
+            <rect width="900" height="520" fill="#eef3ee"></rect>
+            <path d="M90 258 C210 234, 330 236, 455 250 S690 286, 805 250" fill="none" stroke="#8aa39a" stroke-width="28" stroke-linecap="round"></path>
+            <path d="M90 258 C210 234, 330 236, 455 250 S690 286, 805 250" fill="none" stroke="#ffffff" stroke-width="6" stroke-dasharray="14 14" stroke-linecap="round"></path>
+            <path d="M80 126 L830 96" stroke="#d2c49a" stroke-width="18" stroke-linecap="round"></path>
+            <path d="M110 390 L805 405" stroke="#d2c49a" stroke-width="15" stroke-linecap="round"></path>
+            <text x="96" y="108" font-size="24" font-weight="800" fill="#6b5c2d">Tasman Dr</text>
+            <text x="130" y="430" font-size="20" font-weight="700" fill="#6b5c2d">Event pedestrian detours possible</text>
+            <circle cx="126" cy="258" r="24" fill="#1f5e9d"></circle>
+            <text x="88" y="314" font-size="24" font-weight="900" fill="#18201f">Google San Jose</text>
+            <text x="92" y="342" font-size="18" fill="#5d6764">255 W Tasman Dr</text>
+            <path d="M184 258 C275 228, 365 230, 452 250 C548 277, 648 292, 734 260" fill="none" stroke="#0d7a52" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M724 244 L760 258 L724 276 Z" fill="#0d7a52"></path>
+            <g transform="translate(722 148)">
+              <rect x="0" y="0" width="118" height="156" rx="8" fill="#18201f"></rect>
+              <rect x="16" y="18" width="86" height="120" fill="#0d7a52"></rect>
+              <line x1="59" y1="18" x2="59" y2="138" stroke="#ffffff" stroke-width="2"></line>
+              <circle cx="59" cy="78" r="19" fill="none" stroke="#ffffff" stroke-width="2"></circle>
+            </g>
+            <text x="682" y="342" font-size="26" font-weight="900" fill="#18201f">Levi's Stadium</text>
+            <text x="682" y="372" font-size="18" fill="#5d6764">San Francisco Bay Area Stadium</text>
+            <rect x="344" y="66" width="205" height="54" rx="8" fill="#fffdf8" stroke="#d9e0dd"></rect>
+            <text x="366" y="100" font-size="20" font-weight="800" fill="#18201f">步行约 25 分钟</text>
+          </svg>
+        </div>
+
+        <div class="map-note">
+          <span class="pill">现场 signage 优先</span>
+          <div class="info-card">
+            <h3>别硬走小路</h3>
+            <p>今天 stadium 周边有比赛日交通管制，San Tomas Aquino Creek Trail 也可能有绕行。Google Maps 负责方向，最后 10 分钟听工作人员和标识。</p>
+          </div>
+          <div class="info-card">
+            <h3>散场策略</h3>
+            <p>你们走回 Google Tasman，不用抢 rideshare。终场后先上厕所、等 10 分钟，再跟人流往回走，体验会稳很多。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tips-title">
+      <div class="tab-bar">
+        <span class="tab-chip">Tips / 社区经验</span>
+      </div>
+      <h2 id="tips-title">看球体验与社区经验</h2>
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>进场前</h3>
+          <p>票提前加 Apple Wallet；手机充满电；只带透明包。水只能一瓶未开封软塑料瓶，最多 20 oz / 590 ml。</p>
+        </div>
+        <div class="info-card">
+          <h3>热身最值得看</h3>
+          <p>7:00 开球的话，6:10-6:15 坐到座位上最合适。门将可能 6:00 左右开始，场上球员通常 6:15 左右正式热身；6:45-6:50 前后基本结束，之后进入仪式。</p>
+        </div>
+        <div class="info-card">
+          <h3>先找气氛点</h3>
+          <p>不要一下车就闷头进安检。先用 10-15 分钟找世界杯标志、官方互动区、赞助商 booth、两队球迷聚集的人群；拍完照再进场看热身。</p>
+        </div>
+        <div class="info-card">
+          <h3>官方体验区</h3>
+          <p>FIFA 页面写明 Stadium Fan Experience area 在 Gate 1 入口后方，有活动、球迷互动和奖品。场外自然聚集的人群不保证固定位置，顺着队服颜色、歌声和人流找。</p>
+        </div>
+        <div class="info-card">
+          <h3>今晚节奏</h3>
+          <p>5:55 左右到安检外，快速找气氛点；6:10-6:15 坐下看热身。不要 6:45 才进座位，那时热身基本只剩尾声和仪式。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="official-title">
+      <h2 id="official-title">官网注意事项</h2>
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>World Cup 规则优先</h3>
+          <p>世界杯比赛以 FIFA / event website 规则为准；如果和普通 Levi's Stadium 规则有冲突，按世界杯规则执行。进场后通常不能二次入场。</p>
+        </div>
+        <div class="info-card">
+          <h3>透明包和水</h3>
+          <p>Clear bag 最大 12" x 6" x 12"；小 wallet/clutch 最大 4.5" x 6.5"。水只能一瓶未开封软塑料瓶，最多 20 oz / 590 ml。</p>
+        </div>
+        <div class="info-card">
+          <h3>今晚别带</h3>
+          <p>普通背包、电脑包、laptop、硬水瓶、可重复使用水瓶、cooler、tripod/selfie stick、长镜头相机、laser pointer、noisemaker、drone、酒。</p>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:14px;">
+        <div class="info-card">
+          <h3>雨伞处理</h3>
+          <p>普通 Levi's 规则对 umbrella 较宽松，但 FIFA Code 禁止可能被视为危险或可投掷的大伞。今晚最稳妥：不带伞，带薄外套即可。</p>
+        </div>
+        <div class="info-card">
+          <h3>旗帜和横幅</h3>
+          <p>小旗/横幅通常可以，但不要超过 2m x 1.5m，不要带 pole，不要固定到场馆结构上，也不要遮挡其他人视线。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="watch-title">
+      <h2 id="watch-title">这场比赛怎么看</h2>
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>出线局势</h3>
+          <p>双方赛前同积 3 分。澳大利亚赢或平更有主动权；巴拉圭更需要结果，所以如果比分胶着，后半段会变成关键。</p>
+          <div class="watch-row">
+            <span class="minute">0'</span>
+            <p>前 15 分钟看谁先抢节奏。巴拉圭可能更想早进球，澳洲会先稳住。</p>
+          </div>
+          <div class="watch-row">
+            <span class="minute">45'</span>
+            <p>如果半场平，澳洲不一定急；巴拉圭会开始承担更多风险。</p>
+          </div>
+          <div class="watch-row">
+            <span class="minute">70'</span>
+            <p>最值得看的时间窗。平局时，巴拉圭更可能压上，澳洲反击空间会出来。</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>现场观察角度</h3>
+          <p>不要只追球。看两个边路、定位球站位、后腰是否被迫转身。现场看球最大的优势是能看到电视转播外的跑位。</p>
+          <div class="watch-row">
+            <span class="minute">⚑</span>
+            <p>角球和任意球：澳洲身高和对抗会很明显；巴拉圭会争第二落点，也就是第一次顶到球后掉下来的球。</p>
+          </div>
+          <div class="watch-row">
+            <span class="minute">↔</span>
+            <p>换人后 5 分钟：看哪队边后卫开始不敢压上，通常能判断最后走势。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="formation-title">
+      <h2 id="formation-title">预计阵型图</h2>
+      <div class="formation-grid">
+        <div class="pitch-card">
+          <h3>Paraguay 预计 4-4-2</h3>
+          <p>非官方首发。4-4-2 的意思是：4 个后卫、4 个中场、2 个前锋。</p>
+          <div class="pitch" aria-label="Paraguay predicted 4-4-2 formation">
+            <div class="formation-line line-2">
+              <div class="player-dot"><b>Pitta</b><span>前锋</span></div>
+              <div class="player-dot"><b>Enciso</b><span>前锋/前腰</span></div>
+            </div>
+            <div class="formation-line line-4">
+              <div class="player-dot"><b>Mauricio</b><span>边路中场</span></div>
+              <div class="player-dot"><b>Cubas</b><span>防守中场</span></div>
+              <div class="player-dot"><b>D. Gómez</b><span>中场推进</span></div>
+              <div class="player-dot"><b>Galarza</b><span>边路中场</span></div>
+            </div>
+            <div class="formation-line line-4">
+              <div class="player-dot"><b>Alonso</b><span>左后卫</span></div>
+              <div class="player-dot"><b>Alderete</b><span>中后卫</span></div>
+              <div class="player-dot"><b>G. Gómez</b><span>中后卫</span></div>
+              <div class="player-dot"><b>Cáceres</b><span>右后卫</span></div>
+            </div>
+            <div class="formation-line line-1">
+              <div class="player-dot"><b>Gill</b><span>守门员</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pitch-card">
+          <h3>Australia 预计三中卫结构</h3>
+          <p>非官方首发。澳洲预测分歧较大，右边翼卫因伤病/选择仍需等官方确认。</p>
+          <div class="pitch" aria-label="Australia predicted back-three formation">
+            <div class="formation-line line-3">
+              <div class="player-dot"><b>Volpato</b><span>前场创造</span></div>
+              <div class="player-dot"><b>Toure</b><span>中锋</span></div>
+              <div class="player-dot"><b>Irankunda</b><span>边路爆点</span></div>
+            </div>
+            <div class="formation-line line-4">
+              <div class="player-dot"><b>Bos</b><span>左边翼卫</span></div>
+              <div class="player-dot"><b>O'Neill</b><span>中场</span></div>
+              <div class="player-dot"><b>Irvine</b><span>中场覆盖</span></div>
+              <div class="player-dot uncertain"><b>待确认</b><span>右边翼卫</span></div>
+            </div>
+            <div class="formation-line line-3">
+              <div class="player-dot"><b>Burgess</b><span>中后卫</span></div>
+              <div class="player-dot"><b>Souttar</b><span>中后卫</span></div>
+              <div class="player-dot"><b>Circati</b><span>中后卫</span></div>
+            </div>
+            <div class="formation-line line-1">
+              <div class="player-dot"><b>Ryan / Beach</b><span>守门员待确认</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="sources">这是赛前预测阵型，不是官方首发。官方首发通常开球前约 60-75 分钟更新；这场建议 5:45-6:00 PM 再查 FIFA match centre。</p>
+    </section>
+
+    <section class="section" aria-labelledby="teams-title">
+      <h2 id="teams-title">双方阵容介绍</h2>
+      <div class="team-overview">
+        <div class="info-card team-card paraguay">
+          <h3>Paraguay · La Albirroja</h3>
+          <p><b>教练：</b>Gustavo Alfaro。常见思路是紧凑中低位、防守纪律、反击和第二落点。Miguel Almirón 停赛后，巴拉圭更依赖 Julio Enciso 和 Diego Gómez 带球推进，Sanabria 负责禁区终结。</p>
+        </div>
+        <div class="players-grid">
+          <article class="player-card">
+            <span class="number-badge">19</span>
+            <img src="https://statics-maker.llt-services.com/apf/images/2026/05/13/large/74ce783b-23f7-4bbb-aa80-0f4724da9a66-488.png" alt="Julio Enciso">
+            <div class="player-body">
+              <h3>Julio Enciso</h3>
+              <div class="role-line"><span>前锋/前腰</span><span>推进核心</span></div>
+              <div class="market-value">身价估值 €25.0m</div>
+              <p>最值得盯的人。看他在左路内侧或中路接球后，第一脚是否能摆脱澳洲防守中场。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">8</span>
+            <img src="https://statics-maker.llt-services.com/apf/images/2026/05/13/large/6831a4d8-9b15-44c5-8164-be08a86988f7-369.png" alt="Diego Gomez">
+            <div class="player-body">
+              <h3>Diego Gómez</h3>
+              <div class="role-line"><span>中场</span><span>推进/覆盖</span></div>
+              <div class="market-value">身价估值 €25.0m</div>
+              <p>连接后场和前场的人。巴拉圭想打反击，他的第一脚向前很关键。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">9</span>
+            <img src="https://statics-maker.llt-services.com/apf/images/2026/05/13/large/5bb13489-cc9c-480d-b661-14a614b783da-787.png" alt="Antonio Sanabria">
+            <div class="player-body">
+              <h3>Antonio Sanabria</h3>
+              <div class="role-line"><span>中锋</span><span>禁区终结</span></div>
+              <div class="market-value">身价估值 €1.8m</div>
+              <p>看他怎么和澳洲中后卫抢第一点和第二落点；巴拉圭传中质量会直接影响他。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">15</span>
+            <img src="https://statics-maker.llt-services.com/apf/images/2026/05/18/large/eea63e34-4a2a-452c-aa95-c663468d174c-831.png" alt="Gustavo Gomez">
+            <div class="player-body">
+              <h3>Gustavo Gómez</h3>
+              <div class="role-line"><span>中后卫</span><span>防线领袖</span></div>
+              <div class="market-value">身价估值 €3.5m</div>
+              <p>定位球两端都重要。现场看他指挥防线和压迫线的位置。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">10</span>
+            <img src="https://statics-maker.llt-services.com/apf/images/2026/05/13/large/764b6cf6-0b7b-4d8d-a8de-7a9bb40b1190-107.png" alt="Miguel Almiron">
+            <div class="player-body">
+              <h3>Miguel Almirón</h3>
+              <div class="role-line"><span>前腰/边锋</span><span>停赛缺席</span></div>
+              <div class="market-value">身价估值 €7.0m</div>
+              <p>他不在场反而是看点：巴拉圭少了最直接的高速推进点，右路会更难打穿。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="info-card team-card australia">
+          <h3>Australia · Socceroos</h3>
+          <p><b>教练：</b>Tony Popovic。澳洲偏重身体、宽度和定位球，常见三中卫加边翼卫结构；Mathew Leckie 与 Jacob Italiano 伤缺后，边路冲击和年轻攻击手的选择更值得看。</p>
+        </div>
+        <div class="players-grid">
+          <article class="player-card">
+            <span class="number-badge">1</span>
+            <img src="https://socceroos.com.au/sites/default/files/styles/image_600x/public/2026-06/SOC_2026_MatRyanHEADSHOT_0.png?itok=3OfdkZ7L" alt="Mathew Ryan">
+            <div class="player-body">
+              <h3>Mathew Ryan</h3>
+              <div class="role-line"><span>守门员</span><span>队长/出球</span></div>
+              <div class="market-value">身价估值 €1.8m</div>
+              <p>澳洲后场稳定器。现场看他是否敢短传组织，还是直接找 Souttar/前锋。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">19</span>
+            <img src="https://socceroos.com.au/sites/default/files/styles/image_600x/public/2026-06/soc_2026_harrysouttarheadshot.png?itok=2mAf_yGB" alt="Harry Souttar">
+            <div class="player-body">
+              <h3>Harry Souttar</h3>
+              <div class="role-line"><span>中后卫</span><span>制空点</span></div>
+              <div class="market-value">身价估值 €3.5m</div>
+              <p>定位球第一观察对象。澳洲每个角球、后场长球都可能围绕他设计。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">22</span>
+            <img src="https://socceroos.com.au/sites/default/files/styles/image_600x/public/2026-06/SOC_2026_JacksonIrvineHEADSHOT.png?itok=UxXhICOs" alt="Jackson Irvine">
+            <div class="player-body">
+              <h3>Jackson Irvine</h3>
+              <div class="role-line"><span>中场</span><span>覆盖/压迫</span></div>
+              <div class="market-value">身价估值 €1.0m</div>
+              <p>看他什么时候前插、什么时候保护第二落点。澳洲中场节奏很依赖他。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">5</span>
+            <img src="https://socceroos.com.au/sites/default/files/styles/image_600x/public/2026-04/Bos.png?itok=Wum3lqhz" alt="Jordan Bos">
+            <div class="player-body">
+              <h3>Jordan Bos</h3>
+              <div class="role-line"><span>边翼卫/左后卫</span><span>边路推进</span></div>
+              <div class="market-value">身价估值 €12.0m</div>
+              <p>如果澳洲使用边翼卫，他的左路推进是破解低位防线的关键出口。</p>
+            </div>
+          </article>
+          <article class="player-card">
+            <span class="number-badge">17</span>
+            <img src="https://socceroos.com.au/sites/default/files/styles/image_600x/public/2026-04/nestory.png?itok=hpL8x8EE" alt="Nestory Irankunda">
+            <div class="player-body">
+              <h3>Nestory Irankunda</h3>
+              <div class="role-line"><span>边锋/前锋</span><span>爆点</span></div>
+              <div class="market-value">身价估值 €8.0m</div>
+              <p>替补上来也可能改变节奏。看他拿球后第一步加速和远射选择。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="tactics-grid">
+          <div class="info-card team-card paraguay">
+            <h3>巴拉圭常用战术</h3>
+            <ul class="tactic-list">
+              <li><b>紧凑防守：</b>两条线收得比较窄，优先保护中路。</li>
+              <li><b>反击第一脚：</b>Enciso / Diego Gómez 得球后快速向前，找 Sanabria 或弱侧插上。</li>
+              <li><b>定位球：</b>Gustavo Gómez 是攻防两端的关键高点。</li>
+              <li><b>今晚变量：</b>Almirón 停赛，右路高速推进少一个最强选项。</li>
+            </ul>
+          </div>
+          <div class="info-card team-card australia">
+            <h3>澳大利亚常用战术</h3>
+            <ul class="tactic-list">
+              <li><b>三中卫/翼卫：</b>靠 Bos 这类边路球员拉宽，给中场和前锋制造传中空间。</li>
+              <li><b>定位球优势：</b>Souttar 是最明显的目标点，角球和后点争抢都要看他。</li>
+              <li><b>中场覆盖：</b>Irvine 负责压迫、第二落点和后插上，能把比赛变成身体对抗。</li>
+              <li><b>比赛管理：</b>平局对澳洲更友好，领先后可能更快降节奏。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="sources">首发通常赛前约一小时公布。本页更新时间：2026-06-25 1:22 PM PDT；球员照片和号码按 APF / Socceroos 官方球员页整理；身价为 Transfermarkt 市场估值，不等于真实转会费或买断价。</p>
+    </section>
+
+    <section class="section" aria-labelledby="checklist-title">
+      <h2 id="checklist-title">出门前 Checklist</h2>
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>手机</h3>
+          <p>票在 Wallet；电量 80%+；带充电宝；Google Maps 路线提前打开。</p>
+        </div>
+        <div class="info-card">
+          <h3>随身</h3>
+          <p>透明包、小钱包、ID、薄外套、未开封水。不要带普通背包、电脑包、硬水瓶、雨伞。</p>
+        </div>
+        <div class="info-card">
+          <h3>车</h3>
+          <p>Google Tasman 停车后不要露出贵重物品。散场回车时结伴走，跟主行人流。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="sources">
+      Sources:
+      <a href="https://levisstadium.com/event/fifa-world-cup-group-stage/" target="_blank" rel="noopener">Levi's Stadium match page</a> ·
+      <a href="https://www.sfbayareafwc26.com/faqs" target="_blank" rel="noopener">SF Bay Area FWC26 FAQ</a> ·
+      <a href="https://www.sfbayareafwc26.com/transit" target="_blank" rel="noopener">SF Bay Area FWC26 transit</a> ·
+      <a href="https://worldcup.vta.org/Paraguay-Australia-625" target="_blank" rel="noopener">VTA matchday service</a> ·
+      <a href="https://socceroos.com.au/news/match-preview-paraguay-v-australia-fifa-world-cup-2026tm" target="_blank" rel="noopener">Socceroos preview</a> ·
+      <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/paraguay-squad-announcement-gustavo-alfaro" target="_blank" rel="noopener">FIFA Paraguay squad</a> ·
+      <a href="https://www.apf.org.py/jugadores/julio-enciso-138366" target="_blank" rel="noopener">APF Julio Enciso</a> ·
+      <a href="https://www.apf.org.py/jugadores/diego-gomez-141300" target="_blank" rel="noopener">APF Diego Gomez</a> ·
+      <a href="https://www.apf.org.py/jugadores/antonio-sanabria-141862" target="_blank" rel="noopener">APF Antonio Sanabria</a> ·
+      <a href="https://www.apf.org.py/jugadores/gustavo-gomez-138375" target="_blank" rel="noopener">APF Gustavo Gomez</a> ·
+      <a href="https://www.apf.org.py/jugadores/miguel-almiron-138368" target="_blank" rel="noopener">APF Miguel Almiron</a> ·
+      <a href="https://socceroos.com.au/player/mathew-ryan" target="_blank" rel="noopener">Socceroos Mathew Ryan</a> ·
+      <a href="https://socceroos.com.au/player/harry-souttar" target="_blank" rel="noopener">Socceroos Harry Souttar</a> ·
+      <a href="https://socceroos.com.au/player/jackson-irvine" target="_blank" rel="noopener">Socceroos Jackson Irvine</a> ·
+      <a href="https://socceroos.com.au/player/jordan-bos" target="_blank" rel="noopener">Socceroos Jordan Bos</a> ·
+      <a href="https://socceroos.com.au/player/nestory-irankunda" target="_blank" rel="noopener">Socceroos Nestory Irankunda</a> ·
+      <a href="https://www.reddit.com/r/WorldCup2026Tickets/comments/1ud7hmo/sharing_my_world_cup_experience_at_levis_stadium/" target="_blank" rel="noopener">Reddit Levi's Stadium experience</a> ·
+      <a href="https://www.si.com/soccer/paraguay-vs-australia-world-cup-preview-predictions-lineups-6-25-26" target="_blank" rel="noopener">SI predicted Paraguay lineup</a> ·
+      <a href="https://www.sportsmole.co.uk/football/paraguay/world-cup-2026/preview/paraguay-vs-australia-prediction-team-news-lineups_599899.html" target="_blank" rel="noopener">Sports Mole predicted lineups</a> ·
+      <a href="https://www.fotmob.com/matches/australia-vs-paraguay/1hs39g" target="_blank" rel="noopener">FotMob predicted lineups</a> ·
+      <a href="https://www.transfermarkt.us/julio-enciso/profil/spieler/660867" target="_blank" rel="noopener">Transfermarkt Enciso</a> ·
+      <a href="https://www.transfermarkt.com/diego-gomez/profil/spieler/996897" target="_blank" rel="noopener">Transfermarkt Diego Gomez</a> ·
+      <a href="https://www.transfermarkt.us/antonio-sanabria/profil/spieler/234523" target="_blank" rel="noopener">Transfermarkt Sanabria</a> ·
+      <a href="https://www.transfermarkt.us/gustavo-gomez/profil/spieler/215390" target="_blank" rel="noopener">Transfermarkt Gustavo Gomez</a> ·
+      <a href="https://www.transfermarkt.us/miguel-almiron/profil/spieler/272999" target="_blank" rel="noopener">Transfermarkt Almiron</a> ·
+      <a href="https://www.transfermarkt.us/mathew-ryan/profil/spieler/128969" target="_blank" rel="noopener">Transfermarkt Ryan</a> ·
+      <a href="https://www.transfermarkt.us/harry-souttar/profil/spieler/298091" target="_blank" rel="noopener">Transfermarkt Souttar</a> ·
+      <a href="https://www.transfermarkt.us/jackson-irvine/profil/spieler/192557" target="_blank" rel="noopener">Transfermarkt Irvine</a> ·
+      <a href="https://www.transfermarkt.us/jordan-bos/profil/spieler/855731" target="_blank" rel="noopener">Transfermarkt Bos</a> ·
+      <a href="https://www.transfermarkt.us/nestory-irankunda/profil/spieler/956920" target="_blank" rel="noopener">Transfermarkt Irankunda</a> ·
+      <a href="https://www.premierleague.com/en/news/4079853" target="_blank" rel="noopener">Premier League warm-up protocol</a> ·
+      <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/stadiums/san-francisco-bay-area/at-the-stadium" target="_blank" rel="noopener">FIFA Stadium Fan Experience</a> ·
+      <a href="https://talksport.com/football/world-cup/4306239/fifa-world-cup-pre-match-ceremony/" target="_blank" rel="noopener">World Cup pre-match ceremony</a>
+    </footer>
+  </main>
+</body>
+</html>
